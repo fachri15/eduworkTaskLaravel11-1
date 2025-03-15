@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContohController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,3 +17,7 @@ Route::get('/carts', function() {
 Route::get('/checkout', function() {
     return "Ini Route Checkout";
 });
+
+Route::get('/contoh', [ContohController::class, 'index']);
+
+Route::resource('products-resource', ProductController::class);
