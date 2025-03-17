@@ -1,6 +1,14 @@
    @extends('layout')
    @section('title', 'E-Commerce Website')
    @section('content')
+   <style>
+    .thumbnail-product{
+        background-position: center;
+        background-size: cover;
+        height: 300px;
+        width: 100%
+    }
+   </style>
    <!-- Hero Section -->
     <header class="bg-primary text-white text-center py-5">
         <div class="container">
@@ -11,20 +19,31 @@
     </header>
 
     <!-- Daftar Produk -->
-    <section id="produk" class="container py-5">
+    <section id="produk" class="container mt-4 py-5">
         <h2 class="text-center mb-4">Produk Terbaru</h2>
-        <div class="row">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach ($products as $product)
             <div class="col-md-4">
                 <div class="card">
-                    <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produk 1">
+                    <div class="thumbnail-product" style="background-image: url({{ $product->image }});"></div>
+                    {{-- <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}"> --}}
                     <div class="card-body">
-                        <h5 class="card-title">Produk 1</h5>
-                        <p class="card-text">Deskripsi singkat produk.</p>
-                        <p class="text-primary fw-bold">Rp 150.000</p>
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="card-text">{{ $product->description }}</p>
+                        <p class="text-primary fw-bold">Rp {{ $product->price }}</p>
                         <a href="#" class="btn btn-success">Beli Sekarang</a>
                     </div>
                 </div>
             </div>
+            @endforeach
+        </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    {{ $products->links() }}
+                </div>
+            </div>
+
+{{--
             <div class="col-md-4">
                 <div class="card">
                     <img src="https://via.placeholder.com/300" class="card-img-top" alt="Produk 2">
@@ -46,7 +65,7 @@
                         <a href="#" class="btn btn-success">Beli Sekarang</a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </section>
 @endsection
