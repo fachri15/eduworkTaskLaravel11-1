@@ -1,45 +1,46 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Daftar Produk') }}
+            {{ __('Kategori Produk') }}
         </h2>
     </x-slot>
 
     <div class="container mt-5 px-4">
         <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambah">Tambah
-            Produk</button>
-
+            Kategori</button>
         <div class="card shadow-sm p-4">
-
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
                     <tr>
                         <th>ID</th>
-                        <th>Nama</th>
-                        <th>Deskripsi</th>
-                        <th>Stok</th>
-                        <th>Harga</th>
-                        <th>Gambar</th>
+                        <th>Nama Kategori</th>
+                        <th>Jumlah Produk</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Produk A</td>
-                        <td>Deskripsi Produk A</td>
-                        <td>30</td>
-                        <td>Rp 50.000</td>
-                        <td><img src="https://placehold.co/150" alt="Produk A"></td>
+                        <td>Elektronik</td>
+                        <td>50</td>
                         <td>
                             <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"
-                                onclick="isiFormEdit(1, 'Produk A', 'Deskripsi Produk A', '30', 'Rp 50.000' 50)">Edit</button>
+                                onclick="isiFormEdit(1, 'Elektronik', 50)">Edit</button>
                             <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Fashion</td>
+                        <td>30</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"
+                                onclick="isiFormEdit(2, 'Fashion', 30)">Edit</button>
+                            <button class="btn btn-danger btn-sm" onclick="hapusKategori(2)">Hapus</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
 
         </div>
 
@@ -99,3 +100,5 @@
 
 
 </x-app-layout>
+
+
