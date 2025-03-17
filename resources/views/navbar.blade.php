@@ -10,7 +10,16 @@
                 <li class="nav-item"><a class="nav-link" href="#">Beranda</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Produk</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Kontak</a></li>
+                @if (Route::has('login'))
+                    @auth
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/dashboard') }}">Dashboard</a></li>
+                    @else
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    @if (Route::has('register'))
+                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                    @endif
+                    @endauth
+                @endif
             </ul>
         </div>
     </div>

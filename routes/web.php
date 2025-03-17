@@ -2,24 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ContohController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 
-Route::get('/',[HomeController::class, 'index']);
-Route::get('/cart',[HomeController::class, 'cart']);
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/products', function() {
-    return "Ini Route Prooduk";
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('/carts', function() {
-    return "Ini Route Cart";
-});
-Route::get('/checkout', function() {
-    return "Ini Route Checkout";
-});
 
-Route::get('/coba', [ContohController::class, 'coba']);
-
-Route::get('/contoh', [ContohController::class, 'index']);
-
-Route::resource('products-resource', ProductController::class);
+require __DIR__.'/auth.php';
