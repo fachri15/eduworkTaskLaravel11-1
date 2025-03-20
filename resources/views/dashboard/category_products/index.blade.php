@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="container mt-5 px-4">
-        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambah">Tambah
-            Kategori</button>
+        <a href="{{ route('category-products-tambah') }}" class="btn btn-primary mb-3">Tambah
+            Kategori</a>
         <div class="card shadow-sm p-4">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">
@@ -24,8 +24,7 @@
                         <td>Elektronik</td>
                         <td>50</td>
                         <td>
-                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"
-                                onclick="isiFormEdit(1, 'Elektronik', 50)">Edit</button>
+                            <a href="{{ route('category-products-edit') }}" class="btn btn-warning btn-sm">Edit</a>
                             <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
                         </td>
                     </tr>

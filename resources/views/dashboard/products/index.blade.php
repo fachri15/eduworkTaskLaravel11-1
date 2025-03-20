@@ -6,8 +6,8 @@
     </x-slot>
 
     <div class="container mt-5 px-4">
-        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#modalTambah">Tambah
-            Produk</button>
+        <a href="{{ route('products-tambah') }}" class="btn btn-primary mb-3">Tambah
+            Produk</a>
 
         <div class="card shadow-sm p-4">
 
@@ -32,8 +32,7 @@
                         <td>Rp 50.000</td>
                         <td><img src="https://placehold.co/150" alt="Produk A"></td>
                         <td>
-                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"
-                                onclick="isiFormEdit(1, 'Produk A', 'Deskripsi Produk A', '30', 'Rp 50.000' 50)">Edit</button>
+                            <a href="{{ route('products-edit') }}" class="btn btn-warning btn-sm">Edit</a>
                             <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
                         </td>
                     </tr>
