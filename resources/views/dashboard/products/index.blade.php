@@ -24,77 +24,30 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($products as $product)
+
                     <tr>
-                        <td>1</td>
-                        <td>Produk A</td>
-                        <td>Deskripsi Produk A</td>
-                        <td>30</td>
-                        <td>Rp 50.000</td>
-                        <td><img src="https://placehold.co/150" alt="Produk A"></td>
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->name }}</td>
+                        <td>{{ $product->description }}</td>
+                        <td>{{ $product->stock }}</td>
+                        <td>Rp {{number_format($product->price, 0, ",", ".")}}</td>
+                        <td><img src="{{ $product->image }}" alt="{{ $product->name }}" class="img-fluid" style="max-height: 150px"></td>
                         <td>
                             <a href="{{ route('products-edit') }}" class="btn btn-warning btn-sm">Edit</a>
                             <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
 
+            {{ $products->links() }}
+
 
         </div>
 
     </div>
-
-    <!-- Modal Tambah -->
-    <div class="modal fade" id="modalTambah" tabindex="-1" aria-labelledby="modalTambahLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalTambahLabel">Tambah Kategori</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="namaKategori" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control" id="namaKategori">
-                        </div>
-                        <div class="mb-3">
-                            <label for="jumlahProduk" class="form-label">Jumlah Produk</label>
-                            <input type="number" class="form-control" id="jumlahProduk">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal Edit -->
-    <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="modalEditLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalEditLabel">Edit Kategori</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <input type="hidden" id="editId">
-                        <div class="mb-3">
-                            <label for="editNamaKategori" class="form-label">Nama Kategori</label>
-                            <input type="text" class="form-control" id="editNamaKategori">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editJumlahProduk" class="form-label">Jumlah Produk</label>
-                            <input type="number" class="form-control" id="editJumlahProduk">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
 </x-app-layout>

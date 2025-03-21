@@ -19,25 +19,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($categories as $category)
                     <tr>
-                        <td>1</td>
-                        <td>Elektronik</td>
-                        <td>50</td>
+                        <td>{{ $category->id }}</td>
+                        <td>{{ $category->name }}</td>
+                        <td>{{ $category->product_count }}</td>
                         <td>
                             <a href="{{ route('category-products-edit') }}" class="btn btn-warning btn-sm">Edit</a>
                             <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Fashion</td>
-                        <td>30</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#modalEdit"
-                                onclick="isiFormEdit(2, 'Fashion', 30)">Edit</button>
-                            <button class="btn btn-danger btn-sm" onclick="hapusKategori(2)">Hapus</button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
 

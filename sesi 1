@@ -1,0 +1,59 @@
+[33mcommit daf687b16c0094ce05abdb05a0be9c9ce64cc052[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Fri Mar 21 09:46:57 2025 +0800
+
+    Project Laravel 11 Sesi 10 : Secure Back-End Login System
+
+[33mcommit 879114c66f567e038d1131cbff4dfe5641ecf6aa[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Thu Mar 20 20:30:30 2025 +0800
+
+    Project Laravel 11 Sesi 9 : Dashboard Overview
+
+[33mcommit b732a4ac9192a90b902e88bb1a9799d985102d1a[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Thu Mar 20 20:13:57 2025 +0800
+
+    Project Laravel 11 Sesi 8 : Front-End Product Management
+
+[33mcommit 85fb4c1ebe302477a383c9360c9832d805041b08[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Mon Mar 17 20:22:10 2025 +0800
+
+    Project Laravel 11 Sesi 7 : Building Admin Product List & Edit Page
+
+[33mcommit be2bef4ec8f41084f6d3b12fd57b87cd5abd65dc[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Mon Mar 17 12:03:39 2025 +0800
+
+    Project Laravel 11 Sesi 6 : Creating Admin Login & Dashboard Using Breeze
+
+[33mcommit 53498c9225bf7e91a956b0abf4290ab3d93649ff[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Mon Mar 17 10:45:22 2025 +0800
+
+    Project Laravel 11 Sesi 5 : Products Display Integration
+
+[33mcommit 580f80840d40e8f8b899f431aa25b09302f93cea[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Sun Mar 16 21:19:18 2025 +0800
+
+    Project Laravel 11 Sesi 4 : Database Migration & Dummy Data
+
+[33mcommit f4fcdd6b1cd6ae07c64fca6d873f23ab24bc8062[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Sun Mar 16 10:57:45 2025 +0800
+
+    Project Laravel 11 Sesi 3 : Dynamic Page Creation
+
+[33mcommit b122ae10df67c69e82e893c2230eccbb625e7a7b[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Sat Mar 15 19:50:48 2025 +0800
+
+    Project Laravel 11 sesi 2 : Blade Templating & Controller Essentials
+
+[33mcommit 26f8844271a2a7d05cd26aa4581e31b985a9839b[m
+Author: fachri15 <fachridatulotolomo1508@gmail.com>
+Date:   Sat Mar 15 11:50:35 2025 +0800
+
+    Project Laravel 11 sesi 1 : Integrasi Database mysql

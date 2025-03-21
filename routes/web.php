@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProductCategoryController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -25,6 +27,9 @@ Route::middleware('admin')->group(function(){
     Route::get('/products', function(){
         return view('dashboard.products.index');
     })->name('products');
+
+    Route::resource('product-category', ProductCategoryController::class);
+    Route::resource('product', ProductController::class);
 
 });
 
