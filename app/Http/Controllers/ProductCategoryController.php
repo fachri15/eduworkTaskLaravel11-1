@@ -21,7 +21,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.category_products.tambah');
     }
 
     /**
@@ -29,7 +29,24 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $name_check = ProductCategory::where('name', $request->name)->exists();
+
+        if ($name_check) {
+            return back()
+            ->withInput()
+            ->withErrors(['Nama Kategori Sudah Tersedia']);
+        }else{
+            $category = new ProductCategory();
+            $category->name = $request->name;
+            $category->save();
+            return redirect()
+                ->route('product-category.index')
+                ->with('success', 'Kategori Produk sudah terinput');
+        }
     }
 
     /**

@@ -25,7 +25,7 @@
             @foreach ($products as $product)
             <div class="col-md-4">
                 <div class="card">
-                    <div class="thumbnail-product" style="background-image: url({{ $product->image }});"></div>
+                    <div class="thumbnail-product" style="background-image: url({{ Storage::url($product->image) }});"></div>
                     {{-- <img src="{{ $product->image }}" class="card-img-top" alt="{{ $product->name }}"> --}}
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>

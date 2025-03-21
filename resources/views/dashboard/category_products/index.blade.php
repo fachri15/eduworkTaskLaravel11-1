@@ -6,7 +6,25 @@
     </x-slot>
 
     <div class="container mt-5 px-4">
-        <a href="{{ route('category-products-tambah') }}" class="btn btn-primary mb-3">Tambah
+
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <a href="{{ route('product-category.create') }}" class="btn btn-primary mb-3">Tambah
             Kategori</a>
         <div class="card shadow-sm p-4">
             <table class="table table-bordered table-striped">

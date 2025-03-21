@@ -6,7 +6,25 @@
     </x-slot>
 
     <div class="container mt-5 px-4">
-        <a href="{{ route('products-tambah') }}" class="btn btn-primary mb-3">Tambah
+
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
+        <a href="{{ route('product.create') }}" class="btn btn-primary mb-3">Tambah
             Produk</a>
 
         <div class="card shadow-sm p-4">
@@ -32,9 +50,11 @@
                         <td>{{ $product->description }}</td>
                         <td>{{ $product->stock }}</td>
                         <td>Rp {{number_format($product->price, 0, ",", ".")}}</td>
-                        <td><img src="{{ $product->image }}" alt="{{ $product->name }}" class="img-fluid" style="max-height: 150px"></td>
+                        <td><img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="max-height: 150px"></td>
                         <td>
-                            <a href="{{ route('products-edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="
+                            {{-- {{ route('product.edit') }} --}}
+                             " class="btn btn-warning btn-sm">Edit</a>
                             <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
                         </td>
                     </tr>

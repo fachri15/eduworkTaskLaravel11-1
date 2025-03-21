@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -12,7 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('category')->paginate(10);
+        $products = Product::with('category')->paginate(5);
         return view('dashboard.products.index', compact('products'));
     }
 
@@ -21,7 +22,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $categories = ProductCategory::all();
+        return view('dashboard.products.tambah', compact('categories'));
     }
 
     /**
@@ -29,7 +31,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+        'name' => ['required', 'string', 'max:255'],
+        'description' => ['required', 'string'],
+        'price' => ['required', 'numeric'],
+        'product_category_id' => ['required', 'exists:product_categories,id'],
+        'stock' => ['required', 'numeric'],
+        'image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif']
+    ]);
+
+    $category = ProductCategory::findOrFail($request->product_category_id);
+
+    $product = new Product();
+    $product->name = $request->name;
+    $product->description = $request->description;
+    $product->price = $request->price;
+    $product->stock = $request->stock;
+    $product->product_category_id = $category->id;
+
+    if ($request->hasFile('image')) {
+        $product->image = $request->file('image')->store('products', 'public');
+    }
+
+    $product->save();
+
+    return redirect()
+        ->route('product.index')
+        ->with('success', 'Product created successfully!');
+
     }
 
     /**
