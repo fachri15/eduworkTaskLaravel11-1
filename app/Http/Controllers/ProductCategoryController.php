@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
@@ -62,7 +63,9 @@ class ProductCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = ProductCategory::findOrFail($id);
+
+        return view('dashboard.category_products.edit', compact('category'));
     }
 
     /**
@@ -70,7 +73,29 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        $category_name_check = ProductCategory::where('name', $request->name)->exists();
+
+        if ($category_name_check) {
+
+            return back()
+            ->withInput()
+            ->withErrors(['Nama Kategori Sudah ada']);
+
+        } else {
+            $category = ProductCategory::findOrFail($id);
+            $category->name = $request->name;
+            $category->save();
+            return redirect()
+                ->route('product-category.index')
+                ->with('success', 'Kategori Produk sudah terinput');
+        }
+
+
+
     }
 
     /**
@@ -78,6 +103,16 @@ class ProductCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $category = ProductCategory::findOrFail($id);
+        $product_check = Product::where('product_category_id', $category->id)->exists();
+
+        if ($product_check) {
+            $product = Product::where('product_category_id', $category->id)->delete();
+        }
+
+        $category->delete();
+        return redirect()
+                ->route('product-category.index')
+                ->with('success', 'Kategori Produk Berhasil Terhapus');
     }
 }

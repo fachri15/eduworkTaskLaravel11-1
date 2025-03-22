@@ -53,9 +53,14 @@
                         <td><img src="{{ Storage::url($product->image) }}" alt="{{ $product->name }}" class="img-fluid" style="max-height: 150px"></td>
                         <td>
                             <a href="
-                            {{-- {{ route('product.edit') }} --}}
+                            {{ route('product.edit', $product->id) }}
                              " class="btn btn-warning btn-sm">Edit</a>
-                            <button class="btn btn-danger btn-sm" onclick="hapusKategori(1)">Hapus</button>
+                           <form action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Apakah yakin menghapus data kategori ini ?')">Hapus</button>
+                            </form>
                         </td>
                     </tr>
                     @endforeach

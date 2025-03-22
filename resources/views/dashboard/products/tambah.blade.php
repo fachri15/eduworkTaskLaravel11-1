@@ -59,7 +59,7 @@
                                 <select class="form-select" name="product_category_id" id="kategoriProduk" required>
                                     <option selected disabled>Pilih kategori</option>
                                     @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }} >{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}" {{ old('product_category_id') == $category->id ? 'selected' : '' }} >{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
