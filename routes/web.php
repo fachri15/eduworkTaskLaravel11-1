@@ -23,7 +23,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'admin'])->group(function(){
 
-   Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/click/{product_id}', [HomeController::class, 'click'])->name('product.click');
 
     Route::resource('product-category', ProductCategoryController::class);
     Route::resource('product', ProductController::class);

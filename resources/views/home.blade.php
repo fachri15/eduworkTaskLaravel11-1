@@ -30,8 +30,8 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">{{ $product->description }}</p>
-                        <p class="text-primary fw-bold">Rp {{ $product->price }}</p>
-                        <a href="#" class="btn btn-success">Beli Sekarang</a>
+                        <p class="text-primary fw-bold">Rp {{ number_format($product->price, 0,",", ".") }}</p>
+                        <a href="{{ route('product.click', $product->id) }}" target="_blank" class="btn btn-success">Beli Sekarang</a>
                     </div>
                 </div>
             </div>
